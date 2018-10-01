@@ -1,0 +1,46 @@
+package IMC;
+
+
+public class Paciente {   
+    double massa;
+    double altura;
+    static int i = 0; //statica para manter a contagem de pacientes!
+    
+    double calcularIMC(){ 
+    return massa / (Math.pow(altura,2));	//Calcular o IMC
+    }
+    
+    String diagnostico(){ 
+            if(calcularIMC() < 16 ){
+                return "Baixo peso muito grave";
+            }else if((calcularIMC() >= 16) && (calcularIMC() < 17)){ 	// Se o IMC estiver emtre 'X' e 'Y'
+                return "Baixo peso grave";
+            }else if((calcularIMC() >= 17) && (calcularIMC() < 18.5)){ 
+                return "Baixo peso";
+            }else if((calcularIMC() >= 18.5) && (calcularIMC() < 25)){
+                return "Peso normal";
+            }else if((calcularIMC() >= 25) && (calcularIMC() < 30)){
+                return "Sobrepeso";
+            }else if((calcularIMC() >= 30) && (calcularIMC() < 35)){
+                return "Obesidade grau I";
+            }else if((calcularIMC() >= 35) && (calcularIMC() < 40)){
+                return "Obesidade grau II";
+            }else if(calcularIMC() >= 40){
+                return "Obesidade grau III (obesidade mórbida)";
+            }
+     
+     
+        return "ERRO!"; // Erro improvavel de se acontecer!
+    }
+        
+    
+    
+    void Mostrar(){	// mostrar status dos pacientes!
+    System.out.println("============================================/PACIENTE "+(++i)+"/===================\n");
+    System.out.println("Altura = "+altura+" m");
+    System.out.println("Massa = "+massa+" Kg");
+    System.out.println("Imc = "+calcularIMC()+"kg/m²");
+    System.out.println("Diagnostico = "+diagnostico()+"\n\n");
+    } 
+    
+}
